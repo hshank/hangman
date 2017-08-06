@@ -1,9 +1,11 @@
+import getpass
+
 def getWord():
 	finished = False
 	while not finished:
-		word1 = raw_input('Enter word: ')
+		word1 = getpass.getpass(prompt='Enter word: ')
 		if doesMeetGuidelines(word1):
-			word2 = raw_input('Enter word again: ')
+			word2 = getpass.getpass(prompt='Enter word again: ')
 			if isEquals(word1,word2):
 				print 'Success!'
 				finished = True
