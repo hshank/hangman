@@ -1,5 +1,6 @@
 import wordChecker
 import letterCount
+import os
 
 hangman = {}
 hangman[0] = '           ________________\n          |################|\n          |################|\n          |################|\n\n\n\n    o\n  -()-\n   |\_o\n\n'
@@ -12,7 +13,7 @@ hangman[5] = '           ________________\n          |       GOAL     |\n       
 print 'Welcome to Hangman - Sports Edition!\n'
 
 def clearScreen():
-    print chr(27) + "[2J"
+    os.system("clear")
 
 
 word = wordChecker.getWord()
