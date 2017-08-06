@@ -1,10 +1,6 @@
 import wordChecker
-import os
-from art import hangman, endMessage
+from art import hangman, endMessage, introduction, clearScreen
 from letterCount import getLetterCount, getCurrentStatus, insertSpaces
-
-def clearScreen():
-    os.system("clear")
 
 def guessGuidelines(guess):
     if wordChecker.doesMeetGuidelines(guess):
@@ -14,6 +10,8 @@ def guessGuidelines(guess):
 
 
 # Initialize the game
+clearScreen()
+introduction()
 correctLetterSoFar = {}
 incorrectLetterSoFar = {}
 misses = 0
@@ -22,13 +20,12 @@ word = wordChecker.getWord()
 letterCounts = getLetterCount(word)
 current = insertSpaces(getCurrentStatus(correctLetterSoFar, word))
 clearScreen()
-
-print 'Welcome to Hangman - Sports Edition!\n'
+print 'Player 2, guess the word before the goal is scored!'
 while not done:
     print 'Current Hangman is: '
     print hangman[misses]
     print current + '\n'
-    x = raw_input('Guess a letter: ')
+    x = raw_input('\nGuess a letter: ')
     while not guessGuidelines(x):
         x = raw_input('You must guess a single letter! Try again: ')
     clearScreen()
@@ -40,7 +37,7 @@ while not done:
         current = insertSpaces(getCurrentStatus(correctLetterSoFar, word))
         if len(correctLetterSoFar.keys()) == len(letterCounts.keys()):
             print current + '\n'
-            print 'You guessed the word correctly and protected the goal! Congratulations!'
+            print 'You guessed the word correctly and saved the goal! Congratulations!'
             print endMessage
             done = True
         else:
@@ -55,7 +52,7 @@ while not done:
             print current + '\n'
             guess = raw_input("Your final chance! Guess the word: ")
             if guess == word:
-                print 'You guessed the word correctly and protected the goal! Congratulations!'
+                print 'You guessed the word correctly and saved the goal! Congratulations!'
                 print endMessage
             else:
                 print 'Sorry, the correct word is: ' + str(word)

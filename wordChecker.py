@@ -7,9 +7,9 @@ import getpass
 def getWord():
 	finished = False
 	while not finished:
-		word1 = getpass.getpass(prompt='Enter word: ')
+		word1 = getpass.getpass(prompt='\nEnter word: ')
 		if doesMeetGuidelines(word1):
-			word2 = getpass.getpass(prompt='Enter word again: ')
+			word2 = getpass.getpass(prompt='\nEnter word again: ')
 			if isEquals(word1, word2):
 				finished = True
 			else:
