@@ -34,9 +34,9 @@ def getCurrentStatus(correctLettersSoFar, word):
 '''
 	Given a string, return a string that has spaces in between the characters.
 '''
-def inesrtSpaeces(word):
+def insertSpaces(word):
 	returnString = word[0]
 	for elem in word[1:]:
-		returnString += elem + ' '
+		returnString +=  ' ' + elem
 	return returnString
 

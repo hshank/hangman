@@ -1,5 +1,5 @@
 import wordChecker
-import letterCount
+from letterCount import getLetterCount, getCurrentStatus, insertSpaces
 import os
 
 hangman = {}
@@ -27,8 +27,8 @@ incorrectLetterSoFar = {}
 misses = 0
 done =  False
 word = wordChecker.getWord()
-letterCounts = letterCount.getLetterCount(word)
-current = letterCount.getCurrentStatus(correctLetterSoFar, word)
+letterCounts = getLetterCount(word)
+current = insertSpaces(getCurrentStatus(correctLetterSoFar, word))
 clearScreen()
 
 print 'Welcome to Hangman - Sports Edition!\n'
@@ -45,11 +45,11 @@ while not done:
         print 'You already guessed that! Guess again!'
     elif x in letterCounts:
         correctLetterSoFar[x] = True
-        current = letterCount.getCurrentStatus(correctLetterSoFar, word)
+        current = insertSpaces(getCurrentStatus(correctLetterSoFar, word))
         if len(correctLetterSoFar.keys()) == len(letterCounts.keys()):
             print current + '\n'
             print 'You guessed the word correctly and protected the goal! Congratulations!'
-            print endmessage
+            print endMessage
             done = True
         else:
             print 'Correct! The word contains ' + "'" + x + "'" + '. The word has been updated'
