@@ -23,13 +23,18 @@ def getLetterCount(word):
 
 	'''
 
-def getCurrentStatus(correctLetterSoFar, word):
+def getCurrentStatus(correctLettersSoFar, word):
 	currentStatus = ''
 	for character in word:
-		if character in correctLetterSoFar:
+		if character in correctLettersSoFar:
 			currentStatus = currentStatus + character
 		else:
 			currentStatus = currentStatus + '-'
-		currentStatus = currentStatus + ' '
 	return currentStatus
+
+def insertDashes(word):
+	returnString = word[0]
+	for elem in word[1:]:
+		returnString += elem + ' '
+	return returnString
 
