@@ -9,53 +9,62 @@ hangman[2] = '           ________________\n          |################|\n       
 hangman[3] = '           ________________\n          |################|\n          |################|\n          |################|\n\n                      o\n\n    o     \n  -()-  \n   |\_\n'
 hangman[4] = '           ________________\n          |################|\n          |################|\n          |################|\n                      o\n\n\n    o     \n  -()-  \n   |\_\n'
 hangman[5] = '           ________________\n          |       GOAL     |\n          |      GOAL    o |\n          |      GOAL      |\n\n\n\n    o     \n  -()-  \n   |\_\n'
-
-print 'Welcome to Hangman - Sports Edition!\n'
+endMessage = '_________                                     __           ._.\n\_   ___ \  ____   ____    ________________ _/  |_  ______ | |\n/    \  \/ /  _ \ /    \  / ___\_  __ \__  \\   __\/  ___/ | |\n\     \___(  <_> )   |  \/ /_/  >  | \// __ \|  |  \___ \   \|\n \______  /\____/|___|  /\___  /|__|  (____  /__| /____  >  __\n        \/            \//_____/            \/          \/   \/'
 
 def clearScreen():
     os.system("clear")
 
+def guessGuidelines(guess):
+    if wordChecker.doesMeetGuidelines(guess):
+        if len(guess) == 1:
+            return True
+    return False
 
-word = wordChecker.getWord()
-letterCounts = letterCount.getLetterCount(word)
 
-
+# Initialize the game
 correctLetterSoFar = {}
+incorrectLetterSoFar = {}
 misses = 0
 done =  False
+word = wordChecker.getWord()
+letterCounts = letterCount.getLetterCount(word)
 current = letterCount.getCurrentStatus(correctLetterSoFar, word)
+clearScreen()
+
+print 'Welcome to Hangman - Sports Edition!\n'
 while not done:
     print 'Current Hangman is: '
     print hangman[misses]
     print current + '\n'
-    letter = raw_input('Guess a letter here: ')
+    x = raw_input('Guess a letter: ')
+    while not guessGuidelines(x):
+        x = raw_input('You must guess a single letter! Try again: ')
     clearScreen()
 
-    x = letter
-    if x in correctLetterSoFar:
-        print '\n\n\nYou already guessed that! Guess again!'
+    if x in correctLetterSoFar or x in incorrectLetterSoFar:
+        print 'You already guessed that! Guess again!'
     elif x in letterCounts:
         correctLetterSoFar[x] = True
         current = letterCount.getCurrentStatus(correctLetterSoFar, word)
         if len(correctLetterSoFar.keys()) == len(letterCounts.keys()):
-            print 'You guessed the word correctly and saved the goal! Congratulations!'
             print current + '\n'
+            print 'You guessed the word correctly and protected the goal! Congratulations!'
+            print endmessage
             done = True
         else:
-            print '\n\n\nCorrect! The word contains ' + x + '. The word has been updated'
+            print 'Correct! The word contains ' + "'" + x + "'" + '. The word has been updated'
     else:
         misses += 1
-        print '\n\n\nWord does not contain ' + x
-        
+        incorrectLetterSoFar[x] = True
+        print 'Word does not contain ' + "'" + x + "'"
+
         if misses == 5:
-            print hangman[misses]               
-            guess = raw_input("Guess the word! Your final chance!")
+            print hangman[misses]
             print current + '\n'
+            guess = raw_input("Your final chance! Guess the word: ")
             if guess == word:
-                print 'Success!!!'
-                done = True
+                print 'You guessed the word correctly and protected the goal! Congratulations!'
+                print endMessage
             else:
-                print 'Sorry that is incorrect.'
-                print 'The correct word is: ' + str(word)
-                done = True
-            
+                print 'Sorry, the correct word is: ' + str(word)
+            done = True

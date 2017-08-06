@@ -11,7 +11,6 @@ def getWord():
 		if doesMeetGuidelines(word1):
 			word2 = getpass.getpass(prompt='Enter word again: ')
 			if isEquals(word1, word2):
-				print 'Success!'
 				finished = True
 			else:
 				print 'Words do not match. Please try again!'
