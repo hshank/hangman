@@ -1,88 +1,102 @@
+from termcolor import colored
 import wordChecker
 
 def testCase1():
 	word1 = 'hello'
 	word2 = 'hello1'
 	if wordChecker.isEquals(word1, word2):
-		return 'Test Case 1: Success'
-	return "Test Case 1: Failure\nFunction: isEquals\nParameters: '" + word1 + "','" + word2 + "'"
+		print colored('Test Case 1: Success', 'green')
+	else:
+		print colored("Test Case 1: Failure\nFunction: isEquals\nParameters: '" + word1 + "','" + word2 + "'", 'red')
 
 def testCase2():
 	word1 = 'hello'
 	word2 = '  hello'
 	if wordChecker.isEquals(word1, word2):
-		return 'Test Case 2: Success'
-	return "Test Case 2: Failure\nFunction: isEquals\nParameters: '" + word1 + "','" + word2 + "'"
+		print colored('Test Case 2: Success', 'green')
+	else:
+		print colored("Test Case 2: Failure\nFunction: isEquals\nParameters: '" + word1 + "','" + word2 + "'", 'red')
 
 def testCase3():
 	word1 = 'hello'
 	word2 = 'hello  '
 	if wordChecker.isEquals(word1, word2):
-		return 'Test Case 3: Success'
-	return "Test Case 3: Failure\nFunction: isEquals\nParameters: '" + word1 + "','" + word2 + "'"
+		print colored('Test Case 3: Success', 'green')
+	else:
+		print colored("Test Case 3: Failure\nFunction: isEquals\nParameters: '" + word1 + "','" + word2 + "'", 'red')
 
 def testCase4():
 	word1 = 'hello'
 	word2 = ' hello  '
 	if wordChecker.isEquals(word1, word2):
-		return 'Test Case 4: Success'
-	return "Test Case 4: Failure\nFunction: isEquals\nParameters: '" + word1 + "','" + word2 + "'"
+		print colored('Test Case 4: Success', 'green')
+	else:
+		print colored("Test Case 4: Failure\nFunction: isEquals\nParameters: '" + word1 + "','" + word2 + "'", 'red')
 
 def testCase5():
 	word1 = 'hello'
 	word2 = 'Hello'
 	if wordChecker.isEquals(word1, word2):
-		return "Test Case 5: Failure\nFunction: isEquals\nParameters: '" + word1 + "','" + word2 + "'"
-	return 'Test Case 5: Success'
+		print colored("Test Case 5: Failure\nFunction: isEquals\nParameters: '" + word1 + "','" + word2 + "'", 'red')
+	else:
+		print colored('Test Case 5: Success', 'green')
 
 def testCase6():
 	word1 = 'hello'
 	word2 = 'abc'
 	if wordChecker.isEquals(word1, word2):
-		return "Test Case 6: Failure\nFunction: isEquals\nParameters: '" + word1 + "','" + word2 + "'"
-	return 'Test Case 6: Success'
+		print colored("Test Case 6: Failure\nFunction: isEquals\nParameters: '" + word1 + "','" + word2 + "'", 'red')
+	else:
+		print colored('Test Case 6: Success', 'green')
 
 def testCase7():
 	word = 'hello'
 	if wordChecker.doesMeetGuidelines(word):
-		return 'Test Case 7: Success'
-	return 'Failure'
+		print colored('Test Case 7: Success', 'green')
+	else:
+		print colored('Test Case 7: Failure', 'red')
 
 def testCase8():
 	word = 'hello1'
 	if wordChecker.doesMeetGuidelines(word):
-		return 'Failure'
-	return 'Test Case 8: Success'
+		print colored('Test Case 8: Failure', 'red')
+	else:
+		print colored('Test Case 8: Success', 'green')
 
 def testCase9():
 	word = '12345'
 	if wordChecker.doesMeetGuidelines(word):
-		return 'Failure'
-	return 'Success'
+		print colored('Test Case 9: Failure', 'red')
+	else:
+		print colored('Test Case 9: Success', 'green')
 
 def testCase10():
 	word = ''
 	if wordChecker.doesMeetGuidelines(word):
-		return 'Failure'
-	return 'Test Case 9: Success'
+		print colored('Test Case 10: Failure', 'red')
+	else:
+		print colored('Test Case 10: Success', 'green')
 
 def testCase11():
 	word = 'ABC#'
 	if wordChecker.doesMeetGuidelines(word):
-		return 'Failure'
-	return 'Test Case 10: Success'
+		print colored('Test Case 11: Failure', 'red')
+	else:
+		print colored('Test Case 11: Success', 'green')
 
 def testCase12():
 	word = 'A'
 	if wordChecker.doesMeetGuidelines(word):
-		return 'Failure'
-	return 'Test Case 11: Success'
+		print colored('Test Case 12: Failure', 'red')
+	else:
+		print colored('Test Case 12: Success', 'green')
 
 def testCase13():
 	word = ' Hello123 '
 	if wordChecker.doesMeetGuidelines(word):
-		return 'Failure'
-	return 'Test Case 12: Success'
+		print colored('Test Case 13: Failure', 'red')
+	else:
+		print colored('Test Case 13: Success', 'green')
 
 # Add 2 test cases below:
 
@@ -92,34 +106,34 @@ def testCase13():
 
 
 print '*******************************************'
-print testCase1()
+testCase1()
 print '*******************************************'
-print testCase2()
+testCase2()
 print '*******************************************'
-print testCase3()
+testCase3()
 print '*******************************************'
-print testCase4()
+testCase4()
 print '*******************************************'
-print testCase5()
+testCase5()
 print '*******************************************'
-print testCase6()
+testCase6()
 print '*******************************************'
-print testCase7()
+testCase7()
 print '*******************************************'
-print testCase8()
+testCase8()
 print '*******************************************'
-print testCase9()
+testCase9()
 print '*******************************************'
-print testCase10()
+testCase10()
 print '*******************************************'
-print testCase11()
+testCase11()
 print '*******************************************'
-print testCase12()
+testCase12()
 print '*******************************************'
-print testCase13()
+testCase13()
 print '*******************************************'
 
-# Uncomment the following lines after you have written your tests 
+# Uncomment the following lines after you have written your tests
 # print myTestCase1()
 # print '*******************************************'
 # print myTestCase2()
