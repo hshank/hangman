@@ -1,6 +1,7 @@
 import wordChecker
-from letterCount import getLetterCount, getCurrentStatus, insertSpaces
 import os
+from letterCount import getLetterCount, getCurrentStatus, insertSpaces
+from termcolor import colored
 
 hangman = {}
 hangman[0] = '           ________________\n          |################|\n          |################|\n          |################|\n\n\n\n    o\n  -()-\n   |\_o\n\n'
@@ -9,7 +10,7 @@ hangman[2] = '           ________________\n          |################|\n       
 hangman[3] = '           ________________\n          |################|\n          |################|\n          |################|\n\n                      o\n\n    o     \n  -()-  \n   |\_\n'
 hangman[4] = '           ________________\n          |################|\n          |################|\n          |################|\n                      o\n\n\n    o     \n  -()-  \n   |\_\n'
 hangman[5] = '           ________________\n          |       GOAL     |\n          |      GOAL    o |\n          |      GOAL      |\n\n\n\n    o     \n  -()-  \n   |\_\n'
-endMessage = '_________                                     __           ._.\n\_   ___ \  ____   ____    ________________ _/  |_  ______ | |\n/    \  \/ /  _ \ /    \  / ___\_  __ \__  \\   __\/  ___/ | |\n\     \___(  <_> )   |  \/ /_/  >  | \// __ \|  |  \___ \   \|\n \______  /\____/|___|  /\___  /|__|  (____  /__| /____  >  __\n        \/            \//_____/            \/          \/   \/'
+endMessage = colored('_________                                     __           ._.\n\_   ___ \  ____   ____    ________________ _/  |_  ______ | |\n/    \  \/ /  _ \ /    \  / ___\_  __ \__  \\   __\/  ___/ | |\n\     \___(  <_> )   |  \/ /_/  >  | \// __ \|  |  \___ \   \|\n \______  /\____/|___|  /\___  /|__|  (____  /__| /____  >  __\n        \/            \//_____/            \/          \/   \/', 'cyan')
 
 def clearScreen():
     os.system("clear")
