@@ -63,6 +63,57 @@ def testCase6():
 	else:
 		print colored("Test Case 6: Failure\nFunction: getLetterCount\nParameters: '" + word + "'", 'red')
 
+def testCase7():
+	word = "hello"
+	correctLettersSoFar = {'h': True, 'l': True}
+	result = letterCount.getCurrentStatus(correctLettersSoFar, word)
+	answer = 'h-ll-'
+	if result == answer:
+		print colored('Test Case 7: Success', 'green')
+	else:
+		print colored("Test Case 7: Failure\nFunction: getLetterCount\nParameters: " + str(correctLettersSoFar) + ",'" + word + "'", 'red')
+
+def testCase8():
+	word = "hello"
+	correctLettersSoFar = {}
+	result = letterCount.getCurrentStatus(correctLettersSoFar, word)
+	answer = '-----'
+	if result == answer:
+		print colored('Test Case 8: Success', 'green')
+	else:
+		print colored("Test Case 8: Failure\nFunction: getLetterCount\nParameters: " + str(correctLettersSoFar) + ",'" + word + "'", 'red')
+
+def testCase9():
+	word = "abcdef"
+	correctLettersSoFar = {'a': True, 'b': True}
+	result = letterCount.getCurrentStatus(correctLettersSoFar, word)
+	answer = 'ab----'
+	if result == answer:
+		print colored('Test Case 9: Success', 'green')
+	else:
+		print colored("Test Case 9: Failure\nFunction: getLetterCount\nParameters: " + str(correctLettersSoFar) + ",'" + word + "'", 'red')
+
+def testCase10():
+	word = "a"
+	correctLettersSoFar = {'a': True}
+	result = letterCount.getCurrentStatus(correctLettersSoFar, word)
+	answer = 'a'
+	if result == answer:
+		print colored('Test Case 10: Success', 'green')
+	else:
+		print colored("Test Case 10: Failure\nFunction: getLetterCount\nParameters: " + str(correctLettersSoFar) + ",'" + word + "'", 'red')
+
+
+def testCase11():
+	word = "hhhhlele"
+	correctLettersSoFar = {'h': True, 'l': True}
+	result = letterCount.getCurrentStatus(correctLettersSoFar, word)
+	answer = 'hhhhl-l-'
+	if result == answer:
+		print colored('Test Case 11: Success', 'green')
+	else:
+		print colored("Test Case 11: Failure\nFunction: getLetterCount\nParameters: " + str(correctLettersSoFar) + ",'" + word + "'", 'red')
+
 # Add 2 test cases below:
 
 # def myTestCase1():
@@ -83,23 +134,20 @@ testCase5()
 print '*******************************************'
 testCase6()
 print '*******************************************'
-# print testCase7()
-# print '*******************************************'
-# print testCase8()
-# print '*******************************************'
-# print testCase9()
-# print '*******************************************'
-# print testCase10()
-# print '*******************************************'
-# print testCase11()
-# print '*******************************************'
-# print testCase12()
-# print '*******************************************'
-# print testCase13()
-# print '*******************************************'
+testCase7()
+print '*******************************************'
+testCase8()
+print '*******************************************'
+testCase9()
+print '*******************************************'
+testCase10()
+print '*******************************************'
+testCase11()
+
 
 # Uncomment the following lines after you have written your tests
+# print '*******************************************'
 # print myTestCase1()
 # print '*******************************************'
 # print myTestCase2()
-#print '*******************************************'
+
