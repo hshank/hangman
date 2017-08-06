@@ -1,9 +1,8 @@
 import getpass
 
-'''
-	Function that takes in input for hangman game, confirms the user's input,
-	and checks to make sure the word adheres to guidelines.
-'''
+# Function that takes in input for hangman game, confirms the user's input,
+# and checks to make sure the word adheres to guidelines.
+
 def getWord():
 	finished = False
 	while not finished:
@@ -19,48 +18,47 @@ def getWord():
 	return word2
 
 
-'''
-	Given 2 words, return true if they are equal.
-	Extra Condition: Ignore spaces before and after word2.
+# Given 2 words, return True if they are equal.
+# Extra Condition: Ignore spaces before and after word2.
 
-	isEquals('ghana', 'ghana    ')    =>   True
-	isEquals('ghana', ' ghana')       =>   True
-	isEquals('apple', 'banana')       =>   False
+# isEquals('ghana', 'ghana    ')    =>   True
+# isEquals('ghana', ' ghana')       =>   True
+# isEquals('apple', 'banana')       =>   False
+#
+# HINT: use built-in function strip(), which removes all spaces in a string
+# '   abcdef  '.strip()     =>    'abcdef'
 
-	HINT: use built-in function strip()
-	'   abcdef  '.strip()     =>    'abcdef'
-
-'''
 def isEquals(word1, word2):
-	if word1 == word2.strip():
-		return True
-	return False
+	# TODO: YOUR CODE HERE
+
+	# Remove the "raise" line below once you begin writing your solution
+	raise NotImplementedError
+
+	return True
 
 
-'''
-	Given a word, return true if the word adheres to the following guidelines:
-		- Word cannot be empty
-		- Word can only have letters in the alphabet
-		- Word must be lowercase
+# Given a word, return True if the word adheres to the following guidelines:
+# 	- Word cannot be empty
+# 	- Word can only have letters in the alphabet
+# 	- Word must be lowercase
+#
+# doesMeetGuidelines('hello')    =>    True
+# doesMeetGuidelines('12heLlo')    =>    False
+#
+# HINT: Some built-in functions that will help you are:
+#		-  lower() --> returns a lowercase-only version of a string. Examples:
+#		   'hello'.lower() = 'hello'
+#		   'HELLO'.lower() = 'hello'
+#
+#		-  isalpha() --> returns true if a string is made up of only
+#		   alphabetical characters. Examples:
+#		   'hey'.isalpha() = True
+#		   '123'.isalpha() = False
 
-	doesMeetGuidelines('hello')    =>    True
-	doesMeetGuidelines('12heLlo')    =>    False
-
-	HINT: look up built-in functions for manipulating strings
-
-'''
 def doesMeetGuidelines(word):
-	# Check if word is empty
-	if word == '':
-		return False
+	# TODO: YOUR CODE HERE
 
-	# Check if word is letters only
-	if not word.isalpha():
-		return False
+	# Remove the "raise" line below once you begin writing your solution
+	raise NotImplementedError
 
-	# Check if word is lowercase
-	if word != word.lower():
-		return False
-
-	# If all checks pass, return True
 	return True
