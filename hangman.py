@@ -1,6 +1,7 @@
 import wordChecker
 from art import hangman, endMessage, introduction, clearScreen
 from letterCount import getLetterCount, getCurrentStatus, insertSpaces
+from termcolor import colored
 
 def guessGuidelines(guess):
     if wordChecker.doesMeetGuidelines(guess):
@@ -8,35 +9,43 @@ def guessGuidelines(guess):
             return True
     return False
 
+def printHangman():
+    print 'Current Hangman is: '
+    print hangman[misses]
+    print current + '\n'
+    print colored("Wrong Guesses:", 'red'),
+    for letter in incorrectLettersSoFar:
+        print letter,
+    print
+
 
 # Initialize the game
 clearScreen()
 introduction()
-correctLetterSoFar = {}
-incorrectLetterSoFar = {}
+correctLettersSoFar = {}
+incorrectLettersSoFar = {}
 misses = 0
 done =  False
 word = wordChecker.getWord()
 letterCounts = getLetterCount(word)
-current = insertSpaces(getCurrentStatus(correctLetterSoFar, word))
+current = insertSpaces(getCurrentStatus(correctLettersSoFar, word))
 clearScreen()
-print 'Player 2, guess the word before the goal is scored!'
+print 'Player 2, guess the word before the goal is scored! The word is ' + str(len(word)) + ' letters long.'
+
 while not done:
-    print 'Current Hangman is: '
-    print hangman[misses]
-    print current + '\n'
+    printHangman()
     x = raw_input('\nGuess a letter: ')
     while not guessGuidelines(x):
         x = raw_input('You must guess a single letter! Try again: ')
     clearScreen()
 
-    if x in correctLetterSoFar or x in incorrectLetterSoFar:
+    if x in correctLettersSoFar or x in incorrectLettersSoFar:
         print 'You already guessed that! Guess again!'
     elif x in letterCounts:
-        correctLetterSoFar[x] = True
-        current = insertSpaces(getCurrentStatus(correctLetterSoFar, word))
-        if len(correctLetterSoFar.keys()) == len(letterCounts.keys()):
-            print current + '\n'
+        correctLettersSoFar[x] = True
+        current = insertSpaces(getCurrentStatus(correctLettersSoFar, word))
+        if len(correctLettersSoFar.keys()) == len(letterCounts.keys()):
+            printHangman()
             print 'You guessed the word correctly and saved the goal! Congratulations!'
             print endMessage
             done = True
@@ -44,13 +53,12 @@ while not done:
             print 'Correct! The word contains ' + "'" + x + "'" + '. The word has been updated'
     else:
         misses += 1
-        incorrectLetterSoFar[x] = True
+        incorrectLettersSoFar[x] = True
         print 'Word does not contain ' + "'" + x + "'"
 
         if misses == 5:
-            print hangman[misses]
-            print current + '\n'
-            guess = raw_input("Your final chance! Guess the word: ")
+            printHangman()
+            guess = raw_input("\nYour final chance! Guess the word: ")
             if guess == word:
                 print 'You guessed the word correctly and saved the goal! Congratulations!'
                 print endMessage
