@@ -10,13 +10,13 @@ def getWord():
 		word1 = getpass.getpass(prompt='Enter word: ')
 		if doesMeetGuidelines(word1):
 			word2 = getpass.getpass(prompt='Enter word again: ')
-			if isEquals(word1,word2):
+			if isEquals(word1, word2):
 				print 'Success!'
 				finished = True
 			else:
 				print 'Words do not match. Please try again!'
 		else:
-			print 'Word does not meet guidelines Please try again!'
+			print 'Word does not meet guidelines. Please try again!'
 	return word2
 
 
@@ -37,6 +37,7 @@ def isEquals(word1, word2):
 		return True
 	return False
 
+
 '''
 	Given a word, return true if the word adheres to the following guidelines:
 		- Word cannot be empty
@@ -45,15 +46,22 @@ def isEquals(word1, word2):
 
 	doesMeetGuidelines('hello')    =>    True
 	doesMeetGuidelines('12heLlo')    =>    False
+
+	HINT: look up built-in functions for manipulating strings
+
 '''
 def doesMeetGuidelines(word):
+	# Check if word is empty
 	if word == '':
 		return False
-	lowerCase = word.lower()
-	if word != lowerCase:
+
+	# Check if word is letters only
+	if not word.isalpha():
 		return False
-	alphabet = 'abcdefghijklmnopqrstuvwxyz'
-	for character in word:
-		if character not in alphabet:
-			return False
+
+	# Check if word is lowercase
+	if word != word.lower():
+		return False
+
+	# If all checks pass, return True
 	return True
