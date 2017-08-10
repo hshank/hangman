@@ -1,6 +1,6 @@
-from wordChecker import doesMeetGuidelines
+from wordChecker_solution import doesMeetGuidelines, getWord
 from art import hangman, endMessage, introduction, clearScreen
-from letterCount import getLetterCount, getCurrentStatus, insertSpaces
+from letterCount_solution import getLetterCount, getCurrentStatus, insertSpaces
 from termcolor import colored
 
 def printHangman():
@@ -25,7 +25,7 @@ correctLettersSoFar = {}
 incorrectLettersSoFar = {}
 misses = 0
 done =  False
-word = wordChecker.getWord()
+word = getWord()
 letterCounts = getLetterCount(word)
 current = insertSpaces(getCurrentStatus(correctLettersSoFar, word))
 clearScreen()
