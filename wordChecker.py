@@ -21,6 +21,7 @@ def getWord():
 # Given 2 words, return True if they are equal.
 # Extra Condition: Ignore spaces before and after word2.
 
+# Example:
 # isEquals('ghana', 'ghana    ')    =>   True
 # isEquals('ghana', ' ghana')       =>   True
 # isEquals('apple', 'banana')       =>   False
@@ -42,18 +43,19 @@ def isEquals(word1, word2):
 # 	- Word can only have letters in the alphabet
 # 	- Word must be lowercase
 #
+# Example:
 # doesMeetGuidelines('hello')    =>    True
 # doesMeetGuidelines('12heLlo')    =>    False
 #
 # HINT: Some built-in functions that will help you are:
 #		-  lower() --> returns a lowercase-only version of a string. Examples:
-#		   'hello'.lower() = 'hello'
-#		   'HELLO'.lower() = 'hello'
+#		   'hello'.lower() => 'hello'
+#		   'HELLO'.lower() => 'hello'
 #
 #		-  isalpha() --> returns true if a string is made up of only
 #		   alphabetical characters. Examples:
-#		   'hey'.isalpha() = True
-#		   '123'.isalpha() = False
+#		   'hey'.isalpha() => True
+#		   '123'.isalpha() => False
 
 def doesMeetGuidelines(word):
 	# TODO: YOUR CODE HERE
